@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "firebase": "^9.6.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.2",
@@ -20,7 +21,7 @@
     "compile": "npx lessc src/styles/less/main.less src/styles/main.css",
     "compile-x": "npx lessc -x src/styles/less/main.less src/main.css",
     "watch": "npx less-watch-compiler src/styles/less src/styles main.less",
-    "lint": "npx lessc --lint src/styles/less/input.less src/styles/main.css", 
+    "lint": "npx lessc --lint src/styles/less/input.less src/styles/main.css",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
