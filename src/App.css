@@ -1,0 +1,7 @@
+.text-sass_color {
+    color: #BF4080!important;
+    font-weight: bold;
+}
+.text-sass_color:hover {
+    text-decoration: underline;
+}

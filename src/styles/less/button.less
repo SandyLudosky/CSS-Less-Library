@@ -1,0 +1,44 @@
+// -----------------------------------------------------------------------------
+// this file contains everything related to the Button component
+// 
+// -----------------------------------------------------------------------------
+
+
+.box-button {
+  justify-content: space-between;
+  button {
+    margin: 5px;
+  }
+}
+.button {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.sm {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+}
+.lg {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+.button(@color) {
+  background-color: darken(@color, 20%);
+  color: @color; 
+}
+
+
+.make-buttons(@i: 1, @color, @name) when (@i =< @length) {
+  &@{name} {
+    .mixin-button(@color);
+  }
+  &outline-@{name} {
+    .mixin-button-outline(@color);
+  }
+  @clr: extract(@colors, @i + 1);
+  @n: extract(@names, @i + 1);
+  .make-buttons(@i + 1, @clr, @n);
+}

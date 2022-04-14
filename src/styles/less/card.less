@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// this file contains everything related to the Card component
+// 
+// -----------------------------------------------------------------------------
+
+
+.make-cards(@i: 1, @color, @name) when (@i =< @length) {
+    &@{name} {
+        height: 250px;
+        width: 100%;
+        .mixin-card(@color);
+        h5 {
+            text-align: center;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        a {
+            width: 100%;
+        }
+    }
+
+    @clr: extract(@colors, @i + 1);
+    @n: extract(@names, @i + 1);
+    .make-cards(@i + 1, @clr, @n);
+}

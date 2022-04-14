@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// this file contains everything related to the Badge component
+// 
+// -----------------------------------------------------------------------------
+
+// ruleset
+@badge : {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+
+.make-badges(@i: 1, @color, @name) when (@i =< @length) {
+    &@{name} {
+        .mixin-badge(@color)
+    }
+    @clr: extract(@colors, @i + 1);
+    @n: extract(@names, @i + 1);
+    .make-badges(@i + 1, @clr, @n);
+}

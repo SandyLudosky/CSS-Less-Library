@@ -1,0 +1,65 @@
+
+// -----------------------------------------------------------------------------
+// this file contains everything related to the mixins utils
+// 
+// -----------------------------------------------------------------------------
+
+.text-color(@color) when (luma(@color) =< 50%) {
+    color: @cloud;
+}
+.text-color(@color) when (luma(@color) > 50%) {
+    color: @midnight-blue;
+}
+
+.bg-hover(@color) {
+    @clr: darken(@color, 10%);
+    &:hover:extend(.text-underline) {
+      background-color: @clr;  
+      .text-color(@clr);
+    } 
+}
+
+.mixin-color-palette(@color) {
+    background-color: @color;
+    span {
+        .text-color(@color)
+    }
+}
+
+.mixin-button(@color) {
+    .text-color(@color);
+    background-color: @color;
+    border: 1px solid darken(@color, 10%);
+    min-width: 10rem;
+    .bg-hover(@color)
+}
+
+.mixin-button-outline(@color) {
+    color: @color;
+    border: 1px solid @color;
+    &:hover {
+        background-color: @color;
+        .text-color(@color);
+    }
+}
+
+.mixin-badge(@color) {
+    .text-color(@color);
+    background-color: @color;
+    border: 1px solid darken(@color, 10%);
+    .bg-hover(@color)
+}
+
+.mixin-card(@color) {
+   border: 1px solid @color  
+}
+
+.mixin-alert(@color) {
+    color: darken(@color, 30%);
+    background-color: fadeout(@color, 70%);
+    border: 1px solid @color;  
+ }
+
+.mixin-navbar(@color) {
+  background-color: @color;
+}

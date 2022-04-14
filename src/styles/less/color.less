@@ -1,0 +1,24 @@
+// -----------------------------------------------------------------------------
+// this file contains everything related to color utils
+// 
+// -----------------------------------------------------------------------------
+
+.color {
+    width: 200px;
+    height: 200px;
+    padding: 10px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.make-color-palette(@i: 1, @color, @name) when (@i =< @length) {
+    &@{name} {
+        // mixin
+        .mixin-color-palette(@color)
+    }
+    @clr: extract(@colors, @i + 1);
+    @n :extract(@names, @i + 1);
+    .make-color-palette(@i + 1, @clr, @n);
+}

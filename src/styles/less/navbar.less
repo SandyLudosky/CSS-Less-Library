@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// this file contains everything related to the Navbar component
+// 
+// -----------------------------------------------------------------------------
+
+.make-navbars(@i: 1, @color, @name) when (@i =< @length) {
+    &@{name} {
+        // mixin
+        .mixin-navbar(@color);
+        .nav-link, .navbar-brand{
+            .text-color(@color);
+            &.disabled {
+                color: darken(@color, 10%);
+            }
+            &.active {
+                font-weight: bold;
+            }
+        }
+        .navbar-toggler {
+            border: 1px solid darken(@color, 10%);
+            color: darken(@color, 10%);
+        }
+        span {
+            color: darken(@color, 10%);
+        }
+
+    }
+    @clr: extract(@colors, @i + 1);
+    @n :extract(@names, @i + 1);
+    .make-navbars(@i + 1, @clr, @n);
+}

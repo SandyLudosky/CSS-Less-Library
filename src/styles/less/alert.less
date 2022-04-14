@@ -1,0 +1,21 @@
+// -----------------------------------------------------------------------------
+// this file contains everything related to the Alert component
+// 
+// -----------------------------------------------------------------------------
+
+@alert-ruleset: {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.make-alerts(@i: 1, @color, @name) when (@i =< @length) {
+    &@{name} {
+        .mixin-alert(@color)
+    }
+    @clr: extract(@colors, @i + 1);
+    @n: extract(@names, @i + 1);
+    .make-alerts(@i + 1, @clr, @n);
+}

@@ -1,0 +1,78 @@
+@import (inline) "bootstrap.min.css";
+@import (reference) "boilerplate.less";
+@import "variables.less";
+@import "utils.less";
+@import "mixins.less";
+@import "color.less";
+@import "navbar.less";
+@import "button.less";
+@import "card.less";
+@import "badge.less";
+@import "alert.less";
+
+
+@color: extract(@colors, 1);
+@name: extract(@names, 1);
+
+.container {
+    width: 90%;
+    margin: 10px auto;
+}
+
+section {
+    margin: 4rem 0;
+    h2 {
+        margin: 0 0rem 2rem 0.5rem;
+    }
+}
+
+.box-flex {
+    display: flex;
+    width: 90%;
+}
+.box-center {
+    .box-flex();
+    justify-content: center;
+}
+
+.box-start {
+    .box-flex();
+    justify-content: flex-start;
+}
+.box-wrap {
+    .box-flex();
+    margin: 0;
+    flex-wrap: wrap;  
+}
+
+// color palettes
+.color-{
+    .make-color-palette(1, @color, @name);
+}
+
+// buttons
+.button-{
+    .make-buttons(1, @color, @name);
+}
+
+// badge 
+
+.badge-{
+    .make-badges(1, @color, @name);
+}
+// cards
+
+.card-{
+    .make-cards(1, @color, @name);
+}
+
+
+// alert
+.alert-{
+    .make-alerts(1, @color, @name);
+}
+
+// navbar
+.navbar-{
+    .make-navbars(1, @color, @name);
+}
