@@ -20,7 +20,8 @@
     "compile": "npx lessc src/styles/less/main.less src/styles/main.css",
     "compile-x": "npx lessc -x src/styles/less/main.less src/main.css",
     "watch": "npx less-watch-compiler src/styles/less src/styles main.less",
-    "lint": "npx lessc --lint src/styles/less/input.less src/styles/main.css"
+    "lint": "npx lessc --lint src/styles/less/input.less src/styles/main.css", 
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
